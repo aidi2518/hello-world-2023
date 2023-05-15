@@ -1,26 +1,21 @@
- stage ('Hello') {
-            steps {
-                echo 'Hello '
-                sleep 5
-            }
-        }
-  stage ('Build') {
-            steps {
-                echo 'Build'
-                sleep 5
+ pipeline {
+    agent any
 
-            }
-        }
-          stage ('Test') {
+    stages {
+        stage('Build') {
             steps {
-                echo 'Test'
-                sleep 4
+                echo 'Building..'
             }
         }
-  stage ('Deploy') {
+        stage('Test') {
             steps {
-                echo 'Deploy'
-                sleep 4
+                echo 'Testing..'
             }
-
         }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
